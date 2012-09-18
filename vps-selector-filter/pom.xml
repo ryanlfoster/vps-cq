@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>uk.co.vps</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>${project.parent.groupId}</groupId>
+	<artifactId>${module.prefix}-selector-filter</artifactId>
+	<packaging>bundle</packaging>
+	<name>${company.name} - Selector Filter</name>
+	<description>Selector Filter Bundle</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- Export packages that should be visible to other bundles and JSPs -->
+			            	<Export-Package>
+			            		com.vps.dispatcher.*
+			            	</Export-Package>
+					<Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.felix
+										</groupId>
+										<artifactId>
+											maven-scr-plugin
+										</artifactId>
+										<versionRange>
+											[1.6.0,)
+										</versionRange>
+										<goals>
+											<goal>scr</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<!-- Development Profile: Install bundles -->
+		<profile>
+			<id>bundle</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.sling</groupId>
+						<artifactId>maven-sling-plugin</artifactId>
+						<configuration>
+							<slingUrlSuffix>/apps/vps/install/</slingUrlSuffix>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<dependencies>
+		<!-- OSGi Dependencies-->
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi_R4_compendium</artifactId>
+        </dependency>
+		<!-- Other Dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+			<!-- Apache Sling Dependencies -->
+			<dependency>
+		      <groupId>org.apache.sling</groupId>
+		      <artifactId>org.apache.sling.api</artifactId>
+		    </dependency>
+		    <dependency>
+	            <groupId>org.apache.sling</groupId>
+	            <artifactId>org.apache.sling.settings</artifactId>
+	        </dependency>
+		    <dependency>
+	            <groupId>org.apache.sling</groupId>
+	            <artifactId>org.apache.sling.jcr.api</artifactId>
+	        </dependency>
+	        
+			<!--  added for 5.5 -->
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.commons.osgi</artifactId>
+			</dependency>
+
+
+			<!-- servlet API -->
+		      <dependency>
+		        <groupId>javax.servlet</groupId>
+		        <artifactId>servlet-api</artifactId>
+		      </dependency>
+		      <dependency>
+		        <groupId>javax.servlet.jsp</groupId>
+		        <artifactId>jsp-api</artifactId>
+		      </dependency>
+
+			<!-- JCR dependency -->
+			<dependency>
+		      <groupId>javax.jcr</groupId>
+		      <artifactId>jcr</artifactId>
+		    </dependency>
+
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.commons.json</artifactId>
+			</dependency>
+			
+			<!-- Sling Replication Events -->
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-replication</artifactId>
+
+			</dependency>
+			
+			<dependency>
+				<groupId>com.day.cq.wcm</groupId>
+				<artifactId>cq-wcm-api</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>com.day.cq</groupId>
+				<artifactId>cq-commons</artifactId>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.jcr.resource</artifactId>
+			</dependency>
+
+	
+			<!-- Testing -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymock</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.easymock</groupId>
+				<artifactId>easymockclassextension</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-easymock</artifactId>
+			</dependency>
+
+			<!-- Junit Testing -->
+			<dependency> 
+				<groupId>org.apache.sling</groupId> 
+				<artifactId>org.apache.sling.junit.core</artifactId> 
+			</dependency>		
+			<dependency> 
+				<groupId>org.apache.sling</groupId> 
+				<artifactId>org.apache.sling.junit.remote</artifactId> 
+			</dependency>
+			<dependency> 
+				<groupId>org.apache.sling</groupId> 
+				<artifactId>org.apache.sling.junit.scriptable</artifactId> 
+			</dependency>	
+														
+	</dependencies>
+</project>
