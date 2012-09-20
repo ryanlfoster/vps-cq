@@ -251,6 +251,19 @@ CONTENT
     margin: 0 0 15px;
 }
 
+
+/* Columns */
+.cq-colctrl-lt6-c0, .cq-colctrl-lt6-c1, .cq-colctrl-lt6-c2, .cq-colctrl-lt6-c3 {
+    width: 25%;
+    float: left;  
+}
+.cq-colctrl-lt5-c0, .cq-colctrl-lt5-c1 {
+    width: 50%;
+    float: left;  
+}
+
+
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
@@ -423,6 +436,17 @@ smaller than 650
     .video iframe {
         min-height: 250px;
     }
+      
+    /* Columns */
+    .cq-colctrl-lt6-c0, .cq-colctrl-lt6-c1, .cq-colctrl-lt6-c2, .cq-colctrl-lt6-c3 {
+        width: 50%;
+        float: left;  
+    }
+    .cq-colctrl-lt5-c0, .cq-colctrl-lt5-c1 {
+        width: 100%;
+        float: left;  
+    }
+
 
 }
 
@@ -434,6 +458,10 @@ smaller than 560
     /* disable webkit text size adjust (for iPhone) */
     html {
         -webkit-text-size-adjust: none;
+    }
+    
+    body {
+        background-image: none;
     }
 
     /* main nav */

@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2012-09-20T10:23:11.320+01:00"
+        cq:lastModified="{Date}2012-09-20T13:03:32.147+01:00"
         cq:lastModifiedBy="admin"
         cq:template="/apps/responsive/templates/responsivepage"
         jcr:primaryType="cq:PageContent"
@@ -68,6 +68,15 @@
                 sling:resourceType="foundation/components/list"
                 listFrom="static"
                 pages="[/content/geometrixx/en/products,/content/geometrixx/en/company]"/>
+            <text
+                jcr:created="{Date}2012-09-20T11:14:01.696+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2012-09-20T11:14:12.584+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/text"
+                text="&lt;p>more text&lt;/p>&#xa;&lt;p>&lt;/p>&#xa;"
+                textIsRich="true"/>
         </widget1>
         <widget2
             jcr:primaryType="nt:unstructured"
@@ -82,7 +91,52 @@
                 sling:resourceType="foundation/components/download"
                 fileName="GeoCube_Datasheet.pdf"
                 fileReference="/content/dam/geometrixx/documents/GeoCube_Datasheet.pdf"/>
+            <image_0
+                jcr:created="{Date}2012-09-20T11:47:20.382+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2012-09-20T11:47:23.665+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/image"
+                fileReference="/content/dam/geometrixx/icons/office-building.png"/>
         </widget2>
+        <articlePar
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <flash
+                jcr:created="{Date}2012-09-20T11:23:19.296+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2012-09-20T11:23:47.097+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/flash"
+                fileReference="/content/dam/geometrixx/movies/triangles.swf"/>
+            <colctrl
+                jcr:created="{Date}2012-09-20T12:57:25.046+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2012-09-20T13:03:32.146+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys/colctrl"
+                layout="4;cq-colctrl-lt6"/>
+            <col_break13481422530040
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys/colctrl"
+                controlType="break"/>
+            <col_break13481426121470
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys/colctrl"
+                controlType="break"/>
+            <col_break13481426121471
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys/colctrl"
+                controlType="break"/>
+            <col_end13481422450470
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys/colctrl"
+                controlType="end"/>
+        </articlePar>
     </jcr:content>
     <page-1/>
+    <page2/>
 </jcr:root>
